@@ -2,7 +2,6 @@ import {React, useState} from "react";
 import axios from 'axios';
 
 function App() {
-
   //useState to hold the data from API
   const [gameData, setGameData] = useState([]);
 
@@ -15,7 +14,7 @@ function App() {
       params: {platform: input},
       headers: {
         'x-rapidapi-host': 'gamerpower.p.rapidapi.com',
-        'x-rapidapi-key': 'cfe536908dmsh1a523e1c7bd239fp1f9aebjsne6745a54d533'
+        'x-rapidapi-key': 'cfe536908dmsh1a523e1c7bd239fp1f9aebjsne6745a54d533' //Not secure
       }
     };
     axios.request(options).then( (response) => {
@@ -24,7 +23,6 @@ function App() {
       console.error(error);
     });
   }
-
 
   return (
     <div className="App">
@@ -35,7 +33,7 @@ function App() {
         {/* input */}
           <label htmlFor="platform">Choose a platform:</label>
           <select onChange={setInput} id="platInput">
-            <option value="none" selected disabled hidden>Select a Platform</option>
+            <option value="Select a Platform" hidden>Select a Platform</option>
             <option value="steam">Steam</option>
             <option value="pc">PC</option>
             <option value="ps5">Playstation 5</option>
