@@ -13,15 +13,15 @@ The working branch for the application.
 - - Added very basic styling.
 
 - Checkpoint 1
-- - Added page boiler plates.
-- - Added component boiler plates.
-- - Installed React Router.
-- - Implemented routes to pages.
-- - Created basic Nav component.
-- - Implemented Link on nav component.
-- - Created basic Header component.
-- - Created basic Search input component.
-- - Added search and nav to Header component.
-- - Added Header to App.
-- - Added basic styling.
+    - Added page boiler plates.
+    - Added component boiler plates.
+    - Installed React Router.
+    - Implemented routes to pages.
+    - Created basic Nav component.
+    - Implemented Link on nav component.
+    - Created basic Header component.
+    - Created basic Search input component.
+    - Added search and nav to Header component.
+    - Added Header to App.
+    - Added basic styling.
 
