@@ -13,7 +13,7 @@ The working branch for the application.
 - - Added very basic styling.
 
 - Checkpoint 1
--- Added page boiler plates.
+  - Added page boiler plates.
 - - Added component boiler plates.
 - - Installed React Router.
 - - Implemented routes to pages.
