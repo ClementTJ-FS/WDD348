@@ -1,5 +1,12 @@
 import {React, useState} from "react";
 import axios from 'axios';
+import { Routes, Route } from "react-router-dom";
+import Main from "./pages/Main";
+import Details from "./pages/Details";
+import Games from "./pages/Games";
+import Loot from "./pages/Loot";
+import Results from "./pages/Results";
+import Header from "./components/Header";
 
 function App() {
   //useState to hold the data from API
@@ -26,7 +33,17 @@ function App() {
 
   return (
     <div className="App">
-      <header><h1 style={styles.h1}>GamesFree</h1></header>
+      <Header />
+        <section>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="main" element={<Main />} />
+            <Route path="details" element={<Details />} />
+            <Route path="games" element={<Games />} />
+            <Route path="loot" element={<Loot />} />
+            <Route path="results" element={<Results />} />
+          </Routes>
+        </section>
       <main>
       {/* Select form */}
         <form>
@@ -60,8 +77,8 @@ function App() {
 
 export default App;
 
-const styles = {
-  h1: {
-    textAlign: 'center'
-  }
-}
+// const styles = {
+//   h1: {
+//     textAlign: 'center'
+//   }
+// }
