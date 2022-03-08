@@ -24,4 +24,10 @@ The working branch for the application.
     - Added search and nav to Header component.
     - Added Header to App.
     - Added basic styling.
+    - Created Pill component.
+    - Created Dropdown component - Basic boiler plate.
+    - Created MainCard component.
+    - Created MainBtn component.
+    - Added cards to Main.js
+    - Main.js now renders as homepage, data passed down from App.js
 

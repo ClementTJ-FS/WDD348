@@ -2,9 +2,11 @@ import React from "react";
 
 const MainBtn = props =>{
     return (
-        <button style={styles.btn} >
-            {props.btnTxt}
-        </button>
+        <form action={props.gaUrl}>
+            <button style={styles.btn} type="submit">
+                {props.btnTxt}
+            </button>
+        </form>
     )
 }
 
@@ -16,6 +18,7 @@ const styles = {
         color: "#000",
         background: "#ffe",
         borderRadius: "5px",
-        border: "none"
+        border: "none",
+        cursor: "pointer"
     }
 }
