@@ -3,7 +3,7 @@ import React from "react";
 const MainBtn = props =>{
     return (
         <form action={props.gaUrl}>
-            <button style={styles.btn} type="submit">
+            <button style={styles.btn} type="submit" formTarget="_blank">
                 {props.btnTxt}
             </button>
         </form>

@@ -14,7 +14,10 @@ const styles = {
     pill: {
         background: "teal",
         color: "#fff",
-        padding: "5px",
-        borderRadius: "50px"
+        padding: ".5rem",
+        borderRadius: "50px",
+        border: "none",
+        margin: "0 .2rem"
     }
+    
 }

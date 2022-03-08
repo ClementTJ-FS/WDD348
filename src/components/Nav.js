@@ -22,7 +22,7 @@ export default Nav;
 const styles ={
     nav:{
         display: "flex",
-        justifyContent: "space-between"
+        justifyContent: "flex-start"
     },
     link:{
         padding: "5px"

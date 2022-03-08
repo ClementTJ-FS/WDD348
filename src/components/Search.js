@@ -18,7 +18,8 @@ export default Search;
 const styles = {
     sForm:{
         display: "flex",
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "flex-end"
     },
     sBtn:{
         background: "#fff",

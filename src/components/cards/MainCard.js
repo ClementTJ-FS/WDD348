@@ -14,7 +14,8 @@ const MainCard = props =>{
             </div>
             <div style={styles.cardFooter}>
                 <div style={styles.cardPills}>
-                    <Pill pillTxt={props.pillTxt}/>
+                    <Pill pillTxt={props.pillTxt1}/>
+                    <Pill pillTxt={props.pillTxt2}/>
                 </div>
                 <MainBtn btnTxt="Go to Giveaway" gaUrl={props.gaUrl}/>
             </div>

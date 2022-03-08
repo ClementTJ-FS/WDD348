@@ -28,6 +28,10 @@ The working branch for the application.
     - Created Dropdown component - Basic boiler plate.
     - Created MainCard component.
     - Created MainBtn component.
-    - Added cards to Main.js
-    - Main.js now renders as homepage, data passed down from App.js
+    - Added cards to Main.js.
+    - Main.js now renders as homepage, data passed down from App.js.
+    - Buttons now open links in new tab.
+    - Added Pill text from data
+    - Added placeholder loading component.
+    - Games and Loot pages now render proper data.
 
