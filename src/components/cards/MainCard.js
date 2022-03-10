@@ -1,10 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import MainBtn from "../btns/MainBtn";
 import Pill from "../Pill";
 
-const MainCard = props =>{
+const MainCard = (props) =>{
+
+    //sets the GaDetails state to the cardId
+    const handleClick = (e) =>{
+        props.setGaDetails(props.cardId);
+        console.log(props.cardId);
+    }
     return(
-        <article style={styles.card}>
+        <article style={styles.card} >
             <div>
                 <img src={props.cardImg} alt={props.cardImgAlt} style={styles.cardImg}/>
             </div>
@@ -17,7 +24,10 @@ const MainCard = props =>{
                     <Pill pillTxt={props.pillTxt1}/>
                     <Pill pillTxt={props.pillTxt2}/>
                 </div>
-                <MainBtn btnTxt="Go to Giveaway" gaUrl={props.gaUrl}/>
+                <div style={styles.cardBtns}>
+                   <Link to="/details" onClick={handleClick}><MainBtn btnTxt="Details" /></Link>
+                    <MainBtn btnTxt="Go to Giveaway" gaUrl={props.gaUrl}/>
+                </div>
             </div>
         </article>
     )
@@ -60,6 +70,12 @@ const styles = {
     },
     cardPills: {
         display: "flex",
+    },
+    cardBtns: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-end",
+        gap: ".5rem"
     },
     cardFooter: {
         display: "flex",

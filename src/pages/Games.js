@@ -33,8 +33,7 @@ export default Games;
 
 const styles = {
   h1: {
-    textAlign: "center",
-    fontSize: "32px"
+    textAlign: "center", 
   },
   ul: {
     display: "flex",

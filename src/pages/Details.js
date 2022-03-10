@@ -1,9 +1,9 @@
 import React from "react";
 
-const Details =()=>{
+const Details =({gaDetails})=>{
     return(
         <div>
-            <p>Content</p>
+            <p>content</p>
         </div>
     )
 }

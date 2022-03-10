@@ -12,10 +12,14 @@ import Loading from "./components/Loading";
 function App() {
   //useState to hold the data from API
   const [gameData, setGameData] = useState([]);
-  
+
+  //state to hold selected items details
+  const [gaDetails, setGaDetails] = useState([]);
+  console.log(gaDetails);
+
   //filtered arrays for the different types
-  let typeGame = gameData.filter((data) => data.type === "Full Game");
-  let typeLoot = gameData.filter((data) => data.type === "DLC & Loot");
+  const typeGame = gameData.filter((data) => data.type === "Full Game");
+  const typeLoot = gameData.filter((data) => data.type === "DLC & Loot");
   
   //API hook
   useEffect(() => {
@@ -44,17 +48,17 @@ function App() {
     <div className="App">
       <Header />
       <section>
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="details" element={<Details />} />
-          <Route path="games" element={<Games typeGame={typeGame}/>} />
-          <Route path="loot" element={<Loot typeLoot={typeLoot}/>} />
-          <Route path="results" element={<Results />} />
-        </Routes>
-      </section>
+          <Routes>
+            <Route path="/" element={<Main gameData={gameData}/>} />
+            <Route path="main" element={<Main gameData={gameData} setGaDetails={setGaDetails}/>} />
+            <Route path="details" element={<Details />} />
+            <Route path="games" element={<Games typeGame={typeGame}/>} />
+            <Route path="loot" element={<Loot typeLoot={typeLoot}/>} />
+            <Route path="results" element={<Results />} />
+          </Routes>
+        </section>
       <main>
-        {/* Main page render, if gameData is exists, else render loading component */}
-        {gameData ? <Main gameData={gameData} /> : <Loading />}
+        
       </main>
     </div>
   );

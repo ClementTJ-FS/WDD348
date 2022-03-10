@@ -1,8 +1,9 @@
 import React from "react";
 import MainCard from "../components/cards/MainCard";
 
-function Main({ gameData }) {
+function Main({ gameData, setGaDetails }) {
     const [title] = ["All Giveaways"]
+    
   return (
     <div>
       <div>
@@ -15,6 +16,8 @@ function Main({ gameData }) {
             return (
               <li key={game.id} style={styles.li}>
                 <MainCard
+                  setGaDetails={setGaDetails}
+                  cardId={game.id}
                   cardImg={game.image}
                   cardHeader={game.title}
                   cardContent={game.description}

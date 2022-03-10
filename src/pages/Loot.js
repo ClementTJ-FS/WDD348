@@ -34,7 +34,6 @@ export default Loot;
 const styles = {
   h1: {
     textAlign: "center",
-    fontSize: "32px"
   },
   ul: {
     display: "flex",
