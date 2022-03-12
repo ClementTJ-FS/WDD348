@@ -35,5 +35,7 @@ The working branch for the application.
     - Added placeholder loading component.
     - Games and Loot pages now render proper data.
     - Added details button to MainCard
-    - Wired details buttons to collect cardId(Giveaway ID) and set to a state.
+    - Wired details buttons to collect cardId(Giveaway ID) and set to a state/local storage for preservation.
+    - Created API call on details page, use id to pull data.
+    - Added go to giveaway button to details page.
 

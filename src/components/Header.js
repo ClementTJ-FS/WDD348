@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "./Nav"
 import Search from "./Search"
 
-const Header = props =>{
+const Header = () =>{
     return (
         <header style={styles.header}>
             <div style={styles.side}>

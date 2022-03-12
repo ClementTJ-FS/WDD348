@@ -1,14 +1,13 @@
-import React from "react";
+import {React} from "react";
 import { Link } from "react-router-dom";
 import MainBtn from "../btns/MainBtn";
 import Pill from "../Pill";
 
 const MainCard = (props) =>{
-
     //sets the GaDetails state to the cardId
-    const handleClick = (e) =>{
-        props.setGaDetails(props.cardId);
-        console.log(props.cardId);
+    const handleClick = () =>{
+        localStorage.setItem("id", JSON.stringify(props.cardId))
+        props.setId(props.cardId)
     }
     return(
         <article style={styles.card} >
@@ -25,8 +24,12 @@ const MainCard = (props) =>{
                     <Pill pillTxt={props.pillTxt2}/>
                 </div>
                 <div style={styles.cardBtns}>
-                   <Link to="/details" onClick={handleClick}><MainBtn btnTxt="Details" /></Link>
-                    <MainBtn btnTxt="Go to Giveaway" gaUrl={props.gaUrl}/>
+                <div onClick={handleClick}>
+                    <Link to="/details" >
+                    <MainBtn btnTxt="Details" />
+                    </Link>
+                </div>                   
+                    <a href={props.gaUrl} target="_blank" rel="noreferrer"><MainBtn btnTxt="Go to Giveaway" /></a>
                 </div>
             </div>
         </article>

@@ -1,9 +1,9 @@
 import React from "react";
 import MainCard from "../components/cards/MainCard";
 
-const Loot = ({ typeLoot }) => {
+const Loot = ({ typeLoot, setId }) => {
   return (
-    <div>
+    <section>
       <div>
         <h1 style={styles.h1}>DLC & Loot</h1>
       </div>
@@ -14,6 +14,8 @@ const Loot = ({ typeLoot }) => {
             return (
               <li key={game.id} style={styles.li}>
                 <MainCard
+                  setId={setId}
+                  cardId={game.id}
                   cardImg={game.image}
                   cardHeader={game.title}
                   cardContent={game.description}
@@ -26,7 +28,7 @@ const Loot = ({ typeLoot }) => {
             );
           })}
       </ul>
-    </div>
+    </section>
   );
 };
 export default Loot;

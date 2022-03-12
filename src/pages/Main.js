@@ -1,11 +1,11 @@
 import React from "react";
 import MainCard from "../components/cards/MainCard";
 
-function Main({ gameData, setGaDetails }) {
+const Main = ({ gameData, setId }) => {
     const [title] = ["All Giveaways"]
     
   return (
-    <div>
+    <section>
       <div>
         <h1 style={styles.h1}>{title}</h1>
       </div>
@@ -16,13 +16,13 @@ function Main({ gameData, setGaDetails }) {
             return (
               <li key={game.id} style={styles.li}>
                 <MainCard
-                  setGaDetails={setGaDetails}
+                  setId={setId}
                   cardId={game.id}
                   cardImg={game.image}
                   cardHeader={game.title}
                   cardContent={game.description}
                   cardImgAlt="Giveaway Image"
-                  pillTxt1={game.worth}
+                  pillTxt1={game.status}
                   pillTxt2={game.type}
                   gaUrl={game.open_giveaway_url}
                 />
@@ -30,7 +30,7 @@ function Main({ gameData, setGaDetails }) {
             );
           })}
       </ul>
-    </div>
+    </section>
   );
 }
 export default Main;
