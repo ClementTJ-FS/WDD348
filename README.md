@@ -39,3 +39,7 @@ The working branch for the application.
     - Created API call on details page, use id to pull data.
     - Added go to giveaway button to details page.
 
+    - Applied stlying.
+    - Added bottom border accent to active nav link.
+    - Changed Nav component to reduce code and added styled-components.
+

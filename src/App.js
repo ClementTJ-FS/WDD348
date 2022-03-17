@@ -52,7 +52,7 @@ function App() {
 
   //the render
     return (
-      <div className="App">
+      <div className="App" style={styles.App}>
         <Header />
         <main>
           <Routes>  
@@ -70,3 +70,10 @@ function App() {
 
 
 export default App;
+
+const styles = {
+  App:{
+    background: "#0D0F12",
+    color: "#fff"
+  }
+}

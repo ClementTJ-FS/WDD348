@@ -44,9 +44,11 @@ const styles = {
         flexDirection:"column",
         width: "100%",
         border: "none",
-        boxShadow: "4px 4px 5px rgba(0,0,0,.25)",
+        boxShadow: "5px 5px 10px rgba(0,0,0,1)",
         paddingBottom: "1rem",
-        borderRadius: "5px"
+        borderRadius: "5px",
+        background: "#1E2429",
+        color: "#fff"
     },
     cardImg: {
         width: "100%",

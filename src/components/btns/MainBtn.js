@@ -13,10 +13,11 @@ export default MainBtn;
 const styles = {
     btn: {
         padding: ".5rem",
-        color: "#000",
+        color: "#fff",
         borderRadius: "5px",
-        border: "2px solid #000",
+        border: "none",
         cursor: "pointer",
-        fontWeight: "bold"
+        fontWeight: "bold",
+        background: "#2EA0D6"
     }
 }

@@ -12,11 +12,11 @@ export default Pill;
 
 const styles = {
     pill: {
-        background: "teal",
+        background: "transparent",
         color: "#fff",
         padding: ".5rem",
         borderRadius: "50px",
-        border: "none",
+        border: "2px solid #fff",
         margin: "0 .2rem"
     }
     

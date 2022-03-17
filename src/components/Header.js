@@ -26,7 +26,10 @@ const styles = {
         alignItems: "center",
         justifyContent: "space-between",
         width: "100%",
-        boxShadow: "0px 4px 4px rgba(0,0,0,.30)"
+        boxShadow: "0px 5px 10px rgba(0,0,0,1)",
+        background: "#1E2429",
+        color: "#fff",
+        height: "3.5rem",
     },
     side:{
         width: "25%"
