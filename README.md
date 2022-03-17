@@ -38,7 +38,8 @@ The working branch for the application.
     - Wired details buttons to collect cardId(Giveaway ID) and set to a state/local storage for preservation.
     - Created API call on details page, use id to pull data.
     - Added go to giveaway button to details page.
-
+    
+- Checkpoint 2
     - Applied stlying.
     - Added bottom border accent to active nav link.
     - Changed Nav component to reduce code and added styled-components.
