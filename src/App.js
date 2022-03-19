@@ -21,6 +21,12 @@ function App() {
     return initialValue || "";
   })
 
+  //holds the searchInput. - gets stored value from localStorage.
+  const [searchInput, setSInput] = useState(()=>{
+    const saved = localStorage.getItem("search");
+    return saved || "";
+  })
+
   
   //filtered arrays for the different types
   const typeGame = gameData.filter((giveaway) => giveaway.type === "Full Game");
@@ -53,7 +59,7 @@ function App() {
   //the render
     return (
       <div className="App" style={styles.App}>
-        <Header />
+        <Header setSInput={setSInput}/>
         <main>
           <Routes>  
               <Route path="/" element={<Main gameData={gameData} setId={setId}/>} />
@@ -61,7 +67,7 @@ function App() {
               <Route path="details" element={<Details id={id}/>} />
               <Route path="games" element={<Games typeGame={typeGame} setId={setId}/>} />
               <Route path="loot" element={<Loot typeLoot={typeLoot} setId={setId}/>} />
-              <Route path="results" element={<Results />} />
+              <Route path="results" element={<Results gameData={gameData} searchInput={searchInput} setId={setId} setSInput={setSInput}/>} />
           </Routes> 
         </main>
       </div>

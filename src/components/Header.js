@@ -1,8 +1,8 @@
 import React from "react";
 import Nav from "./Nav"
-import Search from "./Search"
+import HeaderSearch from "./HeaderSearch"
 
-const Header = () =>{
+const Header = (setSInput) =>{
     return (
         <header style={styles.header}>
             <div style={styles.side}>
@@ -12,7 +12,7 @@ const Header = () =>{
                 <h1>GamesFree</h1>
             </div>
             <div style={styles.side}>
-                <Search />
+                <HeaderSearch setSInput={setSInput} />
             </div>
         </header>
     )

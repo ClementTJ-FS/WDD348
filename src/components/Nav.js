@@ -40,7 +40,7 @@ const Nav =()=>{
         <nav>
            <StyledNav>
                 {links.map((link,index) => (
-                    <NavLink key={index} to={link.path} exact className={({ isActive }) => (isActive ? 'current' : '')}>
+                    <NavLink key={index} to={link.path} className={({ isActive }) => (isActive ? 'current' : '')}>
                         <li>{link.name}</li>
                     </NavLink>
                 ))}

@@ -43,4 +43,8 @@ The working branch for the application.
     - Applied stlying.
     - Added bottom border accent to active nav link.
     - Changed Nav component to reduce code and added styled-components.
+    - Changed headersearch to link to results page.
+    - Added search functionality.
+    - Finished Results page.
+
 
