@@ -46,5 +46,6 @@ The working branch for the application.
     - Changed headersearch to link to results page.
     - Added search functionality.
     - Finished Results page.
+    - Changed from BrowserRouter to HashRouter in index.js for future deployment.
 
 
