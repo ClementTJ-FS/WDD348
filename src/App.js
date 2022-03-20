@@ -13,13 +13,13 @@ function App() {
   //useState to hold the data from API
   const [gameData, setGameData] = useState([]);
 
-  //holds id from details button click. - gets stored value from localStorage.
-  const [id, setId] = useState(() => {
-    // getting stored value
-    const saved = localStorage.getItem("id");
-    const initialValue = JSON.parse(saved);
-    return initialValue || "";
-  })
+  // //holds id from details button click. - gets stored value from localStorage.
+  // const [id, setId] = useState(() => {
+  //   // getting stored value
+  //   const saved = localStorage.getItem("id");
+  //   const initialValue = JSON.parse(saved);
+  //   return initialValue || "";
+  // })
 
   //holds the searchInput. - gets stored value from localStorage.
   const [searchInput, setSInput] = useState(()=>{
@@ -28,7 +28,7 @@ function App() {
   })
 
   
-  //filtered arrays for the different types
+  //filtered arrays for the different types - There is no input required here, so can do it this way.
   const typeGame = gameData.filter((giveaway) => giveaway.type === "Full Game");
   const typeLoot = gameData.filter((giveaway) => giveaway.type === "DLC & Loot");
   
@@ -62,12 +62,14 @@ function App() {
         <Header setSInput={setSInput}/>
         <main>
           <Routes>  
-              <Route path="/" element={<Main gameData={gameData} setId={setId}/>} />
-              <Route path="main" element={<Main gameData={gameData} setId={setId}/>} />
-              <Route path="details" element={<Details id={id}/>} />
-              <Route path="games" element={<Games typeGame={typeGame} setId={setId}/>} />
-              <Route path="loot" element={<Loot typeLoot={typeLoot} setId={setId}/>} />
-              <Route path="results" element={<Results gameData={gameData} searchInput={searchInput} setId={setId} setSInput={setSInput}/>} />
+              <Route path="/" element={<Main gameData={gameData} />} />
+              <Route path="main" element={<Main gameData={gameData} />} />
+              <Route path="details" element={<Details />}>
+                <Route path=":id" element={<Details />} />
+              </Route>
+              <Route path="games" element={<Games typeGame={typeGame} />} />
+              <Route path="loot" element={<Loot typeLoot={typeLoot} />} />
+              <Route path="results" element={<Results gameData={gameData} searchInput={searchInput}  setSInput={setSInput}/>} />
           </Routes> 
         </main>
       </div>

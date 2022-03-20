@@ -1,7 +1,7 @@
 import React from "react";
 import MainCard from "../components/cards/MainCard";
 
-const Games = ({ typeGame, setId }) => {
+const Games = ({ typeGame }) => {
   return (
     <section>
       <div>
@@ -14,7 +14,6 @@ const Games = ({ typeGame, setId }) => {
             return (
               <li key={game.id} style={styles.li}>
                 <MainCard
-                  setId={setId}
                   cardId={game.id}
                   cardImg={game.image}
                   cardHeader={game.title}

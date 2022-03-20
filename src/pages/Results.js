@@ -16,18 +16,18 @@ const Results = (props) => {
           props.gameData
             .filter((ga) => {
               if (props.searchInput === "") {
-                return ga;
+                return true;
               } else if (
                 ga.title.toLowerCase().includes(props.searchInput.toLowerCase())
               ) {
-                return ga;
+                return true;
               }
+              return false;
             })
             .map((ga) => {
               return (
                 <li key={ga.id} style={styles.li}>
                   <MainCard
-                    setId={props.setId}
                     cardId={ga.id}
                     cardImg={ga.image}
                     cardHeader={ga.title}

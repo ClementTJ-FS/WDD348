@@ -1,11 +1,13 @@
 import { React, useEffect, useState } from "react";
 import axios from "axios";
 import MainBtn from "../components/btns/MainBtn";
+import { useParams } from "react-router-dom";
 
 
-const Details = ({ id }) => {
+const Details = () => {
   //from API
   const [details, setDetails] = useState([]);
+  let {id} = useParams();
 
   //API hook to get details. - uses id from App
   useEffect(() => {

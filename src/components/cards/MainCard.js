@@ -4,11 +4,6 @@ import MainBtn from "../btns/MainBtn";
 import Pill from "../Pill";
 
 const MainCard = (props) =>{
-    //sets the GaDetails state to the cardId
-    const handleClick = () =>{
-        localStorage.setItem("id", JSON.stringify(props.cardId))
-        props.setId(props.cardId)
-    }
     return(
         <article style={styles.card} >
             <div>
@@ -24,9 +19,9 @@ const MainCard = (props) =>{
                     <Pill pillTxt={props.pillTxt2}/>
                 </div>
                 <div style={styles.cardBtns}>
-                <div onClick={handleClick}>
-                    <Link to="/details" >
-                    <MainBtn btnTxt="Details" />
+                <div>
+                    <Link to={`/details/${props.cardId}`} >
+                        <MainBtn btnTxt="Details" />
                     </Link>
                 </div>                   
                     <a href={props.gaUrl} target="_blank" rel="noreferrer"><MainBtn btnTxt="Go to Giveaway" /></a>
