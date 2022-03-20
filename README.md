@@ -49,5 +49,6 @@ The working branch for the application.
     - Changed from BrowserRouter to HashRouter in index.js for future deployment.
     - Removed id state.
     - Implemented URL params to get details. (Allows for page linking/preservation.)
+    - Finished Details page.
 
 
