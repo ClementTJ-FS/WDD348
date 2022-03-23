@@ -2,19 +2,51 @@ import { React } from "react";
 import MainCard from "../components/cards/MainCard";
 import FilterBar from "../components/FilterBar";
 
-const Main = ({ gameData, sortOptions, setValue, value }) => {
+const Main = (props) => {
+  console.log(props.platSelected, props.typeSelected, props.sortSelected);
+  console.log();
   return (
     <section>
       <div>
         <h1 style={styles.h1}>All Giveaways</h1>
       </div>
-      {sortOptions && (
-        <FilterBar sortOptions={sortOptions} setValue={setValue} />
+      {props.sortOptions && (
+        <FilterBar
+          sortOptions={props.sortOptions}
+          setPlatSelected={props.setPlatSelected}
+          setTypeSelected={props.setTypeSelected}
+          setSortSelected={props.setSortSelected}
+        />
       )}
       <ul style={styles.ul}>
         {/* map the data to cards, if gameData exists */}
-        {gameData &&
-          gameData
+        {props.gameData &&
+          props.gameData
+            .filter((ga) => {
+              if (props.platSelected === "all") {
+                return true;
+              } else if (
+                ga.platforms.toLowerCase().includes(props.platSelected)
+              ) {
+                return true;
+              }
+              return false;
+            })
+            .filter((ga) => {
+              if (props.typeSelected === "all") {
+                return true;
+              } else if (ga.type.toLowerCase().includes(props.typeSelected)) {
+                return true;
+              }
+              return false;
+            }).sort((a,b) =>{
+              if(props.sortSelected === "date"){
+                return a.published_date - b.published_date
+              }else if(props.sortSelected === "popularity"){
+                return b.users - a.users
+              }
+              return 0;
+            })
             .map((game) => {
               return (
                 <li key={game.id} style={styles.li}>

@@ -1,5 +1,6 @@
 {
   "platform": [
+    { "value": "all", "display": "All" },
     { "value": "pc", "display": "PC" },
     { "value": "steam", "display": "Steam" },
     { "value": "epic", "display": "Epic Games" },
@@ -9,25 +10,25 @@
     { "value": "playstation 4", "display": "Playstation 4" },
     { "value": "playstation 5", "display": "Playstation 5" },
     { "value": "xbox one", "display": "Xbox One" },
-    { "value": "series x", "display": "Xbox Series X/S" },
+    { "value": "xbox series x|s", "display": "Xbox Series X/S" },
     { "value": "switch", "display": "Swtich" },
-    { "value": " android", "display": "Android" },
+    { "value": "android", "display": "Android" },
     { "value": "ios", "display": "iOS" },
     { "value": "vr", "display": "VR" },
     { "value": "battlenet", "display": "Battle.net" },
     { "value": "origin", "display": "Origin" },
-    { "value": "drm", "display": "DRM Free" },
+    { "value": "drm-free", "display": "DRM Free" },
     { "value": "360", "display": "Xbox 360" }
   ],
   "type": [
+    { "value": "all", "display": "All" },
     { "value": "game", "display": "Game" },
-    { "value": "dlc", "display": "Loot" },
+    { "value": "loot", "display": "Loot" },
     { "value": "beta", "display": "Beta" },
-    { "value": "early", "display": "Early Access" }
+    { "value": "ea", "display": "Early Access" }
   ],
   "sortBy": [
-    { "value": "date", "display": "Date" },
-    { "value": "value", "display": "Value" },
+    { "value": "date", "display": "Published Date" },
     { "value": "popularity", "display": "Popularity" }
   ]
 }

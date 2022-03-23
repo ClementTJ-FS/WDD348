@@ -10,20 +10,20 @@ import Header from "./components/Header";
 
 function App() {
   //useState to hold the data from API
-  const [gameData, setGameData] = useState([]);
+  const [gameData, setGameData] = useState([]),
+    //holds the searchInput. - gets stored value from localStorage.
+    [searchInput, setSInput] = useState(() => {
+      const saved = localStorage.getItem("search");
+      return saved || "";
+    }),
+    //holds the sort options
+    [sortOptions, setOptions] = useState([]),
+    //sort values
+    [platSelected, setPlatSelected] = useState("all"),
+    [typeSelected, setTypeSelected] = useState("all"),
+    [sortSelected, setSortSelected] = useState("date");
 
-  //holds the searchInput. - gets stored value from localStorage.
-  const [searchInput, setSInput] = useState(() => {
-    const saved = localStorage.getItem("search");
-    return saved || "";
-  });
-
-  //holds the sort options
-  const [sortOptions, setOptions] = useState([]);
-  //sort value
-  const [value, setValue] = useState("all");
-
-  //get the sort options from json
+  //get the sort options from options.json
   useEffect(() => {
     const getData = () => {
       fetch("options.json", {
@@ -47,6 +47,7 @@ function App() {
     const options = {
       method: "GET",
       url: "https://gamerpower.p.rapidapi.com/api/giveaways",
+      params: {},
       headers: {
         "x-rapidapi-host": "gamerpower.p.rapidapi.com",
         "x-rapidapi-key": "cfe536908dmsh1a523e1c7bd239fp1f9aebjsne6745a54d533", //Not secure
@@ -56,6 +57,7 @@ function App() {
       axios
         .request(options)
         .then((response) => {
+          console.log("requested");
           setGameData(response.data);
         })
         .catch((error) => {
@@ -65,24 +67,42 @@ function App() {
     getData();
   }, []);
 
-  //filtered arrays for the different types 
-  const typeGame = gameData.filter((giveaway) => giveaway.type === "Full Game"),
-  typeLoot = gameData.filter((giveaway) => giveaway.type === "DLC & Loot");
-
-
   //the render
   return (
     <div className="App" style={styles.App}>
       <Header setSInput={setSInput} />
       <main>
         <Routes>
-          <Route path="/" element={<Main gameData={gameData} sortOptions={sortOptions} setValue={setValue} value={value}/>} />
+          <Route
+            path="/"
+            element={
+              <Main
+                gameData={gameData}
+                sortOptions={sortOptions}
+                platSelected={platSelected}
+                setPlatSelected={setPlatSelected}
+                typeSelected={typeSelected}
+                setTypeSelected={setTypeSelected}
+                sortSelected={sortSelected}
+                setSortSelected={setSortSelected}
+              />
+            }
+          />
           <Route path="details" element={<Details />}>
             <Route path=":id" element={<Details />} />
           </Route>
-          <Route path="games" element={<Games typeGame={typeGame} />} />
-          <Route path="loot" element={<Loot typeLoot={typeLoot} />} />
-          <Route path="results" element={<Results gameData={gameData} searchInput={searchInput} setSInput={setSInput}/>} />
+          <Route path="games" element={<Games gameData={gameData} />} />
+          <Route path="loot" element={<Loot gameData={gameData} />} />
+          <Route
+            path="results"
+            element={
+              <Results
+                gameData={gameData}
+                searchInput={searchInput}
+                setSInput={setSInput}
+              />
+            }
+          />
         </Routes>
       </main>
     </div>

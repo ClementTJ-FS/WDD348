@@ -1,31 +1,33 @@
 import React from "react";
 import MainCard from "../components/cards/MainCard";
 
-const Loot = ({ typeLoot }) => {
+const Loot = ({ gameData }) => {
   return (
     <section>
       <div>
         <h1 style={styles.h1}>DLC & Loot</h1>
       </div>
       <ul style={styles.ul}>
-        {/* map the data to cards, if typeLoot exists */}
-        {typeLoot &&
-          typeLoot.map((game) => {
-            return (
-              <li key={game.id} style={styles.li}>
-                <MainCard
-                  cardId={game.id}
-                  cardImg={game.image}
-                  cardHeader={game.title}
-                  cardContent={game.description}
-                  cardImgAlt="Giveaway Image"
-                  pillTxt1={game.worth}
-                  pillTxt2={game.type}
-                  gaUrl={game.open_giveaway_url}
-                />
-              </li>
-            );
-          })}
+        {/* map the data to cards, if gameData exists */}
+        {gameData &&
+          gameData
+            .filter((giveaway) => giveaway.type === "DLC & Loot")
+            .map((game) => {
+              return (
+                <li key={game.id} style={styles.li}>
+                  <MainCard
+                    cardId={game.id}
+                    cardImg={game.image}
+                    cardHeader={game.title}
+                    cardContent={game.description}
+                    cardImgAlt="Giveaway Image"
+                    pillTxt1={game.worth}
+                    pillTxt2={game.type}
+                    gaUrl={game.open_giveaway_url}
+                  />
+                </li>
+              );
+            })}
       </ul>
     </section>
   );

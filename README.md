@@ -58,4 +58,7 @@ The working branch for the application.
     - filterBar Dropdowns now populate with JSON file data.
     - Added FilterBar to Main.
     - Added initial style to FilterBar.
+    - Implemented filter functionality.
+    - Fixed sort by functionality.
+
 
