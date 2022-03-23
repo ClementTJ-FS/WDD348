@@ -1,37 +1,40 @@
-import React from "react";
+import { React } from "react";
 import MainCard from "../components/cards/MainCard";
+import FilterBar from "../components/FilterBar";
 
-const Main = ({ gameData }) => {
-    const [title] = ["All Giveaways"]
-    
+const Main = ({ gameData, sortOptions, setValue, value }) => {
   return (
     <section>
       <div>
-        <h1 style={styles.h1}>{title}</h1>
+        <h1 style={styles.h1}>All Giveaways</h1>
       </div>
+      {sortOptions && (
+        <FilterBar sortOptions={sortOptions} setValue={setValue} />
+      )}
       <ul style={styles.ul}>
         {/* map the data to cards, if gameData exists */}
         {gameData &&
-          gameData.map((game) => {
-            return (
-              <li key={game.id} style={styles.li}>
-                <MainCard
-                  cardId={game.id}
-                  cardImg={game.image}
-                  cardHeader={game.title}
-                  cardContent={game.description}
-                  cardImgAlt="Giveaway Image"
-                  pillTxt1={game.status}
-                  pillTxt2={game.type}
-                  gaUrl={game.open_giveaway_url}
-                />
-              </li>
-            );
-          })}
+          gameData
+            .map((game) => {
+              return (
+                <li key={game.id} style={styles.li}>
+                  <MainCard
+                    cardId={game.id}
+                    cardImg={game.image}
+                    cardHeader={game.title}
+                    cardContent={game.description}
+                    cardImgAlt="Giveaway Image"
+                    pillTxt1={game.status}
+                    pillTxt2={game.type}
+                    gaUrl={game.open_giveaway_url}
+                  />
+                </li>
+              );
+            })}
       </ul>
     </section>
   );
-}
+};
 export default Main;
 
 const styles = {

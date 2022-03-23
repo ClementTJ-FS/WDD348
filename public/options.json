@@ -1,0 +1,33 @@
+{
+  "platform": [
+    { "value": "pc", "display": "PC" },
+    { "value": "steam", "display": "Steam" },
+    { "value": "epic", "display": "Epic Games" },
+    { "value": "ubisoft", "display": "Ubisoft" },
+    { "value": "gog", "display": "GOG" },
+    { "value": "itch.io", "display": "Itchio" },
+    { "value": "playstation 4", "display": "Playstation 4" },
+    { "value": "playstation 5", "display": "Playstation 5" },
+    { "value": "xbox one", "display": "Xbox One" },
+    { "value": "series x", "display": "Xbox Series X/S" },
+    { "value": "switch", "display": "Swtich" },
+    { "value": " android", "display": "Android" },
+    { "value": "ios", "display": "iOS" },
+    { "value": "vr", "display": "VR" },
+    { "value": "battlenet", "display": "Battle.net" },
+    { "value": "origin", "display": "Origin" },
+    { "value": "drm", "display": "DRM Free" },
+    { "value": "360", "display": "Xbox 360" }
+  ],
+  "type": [
+    { "value": "game", "display": "Game" },
+    { "value": "dlc", "display": "Loot" },
+    { "value": "beta", "display": "Beta" },
+    { "value": "early", "display": "Early Access" }
+  ],
+  "sortBy": [
+    { "value": "date", "display": "Date" },
+    { "value": "value", "display": "Value" },
+    { "value": "popularity", "display": "Popularity" }
+  ]
+}

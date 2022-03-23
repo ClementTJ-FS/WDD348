@@ -2,7 +2,7 @@
 The working branch for the application.
 
 ### Changes -
-- POC
+- POC (Milestone 1)
     - Created initial React boiler plate.
     - Replaced default data with app information.
     - Added API call function using axios.
@@ -12,7 +12,7 @@ The working branch for the application.
     - API data maps to output list.
     - Added very basic styling.
 
-- Checkpoint 1
+- Checkpoint 1 (Milestone 2)
     - Added page boiler plates.
     - Added component boiler plates.
     - Installed React Router.
@@ -39,7 +39,7 @@ The working branch for the application.
     - Created API call on details page, use id to pull data.
     - Added go to giveaway button to details page.
     
-- Checkpoint 2
+- Checkpoint 2 (Milestone 3)
     - Applied stlying.
     - Added bottom border accent to active nav link.
     - Changed Nav component to reduce code and added styled-components.
@@ -51,4 +51,11 @@ The working branch for the application.
     - Implemented URL params to get details. (Allows for page linking/preservation.)
     - Finished Details page.
 
+- Completion (Milestone 4)
+    - Added JSON file to hold sort options.
+    - Created Dropdown component.
+    - Created FilterBar component.
+    - filterBar Dropdowns now populate with JSON file data.
+    - Added FilterBar to Main.
+    - Added initial style to FilterBar.
 

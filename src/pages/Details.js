@@ -108,15 +108,16 @@ const styles = {
   },
   row: {
     display: "flex",
+    gap: "25%"
   },
   col1: {
     width: "50%",
   },
   col2: {
-    width: "50%",
+    width: "25%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    alignItems: "flex-end",
+    
   },
 };

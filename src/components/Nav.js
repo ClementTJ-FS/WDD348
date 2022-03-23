@@ -9,14 +9,13 @@ const StyledNav = styled.ul`
         padding-left: 1rem;
         margin: 0;
         
-
         a {
             text-decoration: none;
         }
 
         li {
             color: white;
-            margin: 0 0.8rem;
+            margin: 0 0.5rem;
             font-size: 1.3rem;
             list-style: none;
             padding: .75rem 0 .75rem 0;
