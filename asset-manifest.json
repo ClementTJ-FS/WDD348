@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ClementTJ-FS/WDD348/static/css/main.cf1d40c5.css",
+    "main.js": "/ClementTJ-FS/WDD348/static/js/main.43e09fae.js",
+    "static/js/787.2877711a.chunk.js": "/ClementTJ-FS/WDD348/static/js/787.2877711a.chunk.js",
+    "index.html": "/ClementTJ-FS/WDD348/index.html",
+    "main.cf1d40c5.css.map": "/ClementTJ-FS/WDD348/static/css/main.cf1d40c5.css.map",
+    "main.43e09fae.js.map": "/ClementTJ-FS/WDD348/static/js/main.43e09fae.js.map",
+    "787.2877711a.chunk.js.map": "/ClementTJ-FS/WDD348/static/js/787.2877711a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf1d40c5.css",
+    "static/js/main.43e09fae.js"
+  ]
+}
