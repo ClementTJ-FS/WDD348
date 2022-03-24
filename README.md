@@ -64,6 +64,8 @@ The working branch for the application.
     - Added error text for empty filtered array.
     - Added react-infinite-scroll library
     - Implemented infinite scroll functionality on Main.
+    - Addressed accessability issues.
+    - Added favicon and app icons.
     
 
 
