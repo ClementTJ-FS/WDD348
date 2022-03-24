@@ -62,5 +62,8 @@ The working branch for the application.
     - Fixed sort by functionality.
     - Adding loading spinner.
     - Added error text for empty filtered array.
+    - Added react-infinite-scroll library
+    - Implemented infinite scroll functionality on Main.
+    
 
 

@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React,  useEffect, useState } from "react";
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 import Main from "./pages/Main";
@@ -22,7 +22,39 @@ function App() {
     [platSelected, setPlatSelected] = useState("all"),
     [typeSelected, setTypeSelected] = useState("all"),
     [sortSelected, setSortSelected] = useState("date"),
-    [loading, setLoading] = useState(true)
+    [loading, setLoading] = useState(true),
+    [filteredGa, setFilteredGa] = useState([]);
+
+    useEffect(()=>{
+      const setFilters =()=>{
+       setFilteredGa( gameData
+        .filter((ga) => {
+          if (platSelected === "all") {
+            return true;
+          } else if (ga.platforms.toLowerCase().includes(platSelected)) {
+            return true;
+          }
+          return false;
+        })
+        .filter((ga) => {
+          if (typeSelected === "all") {
+            return true;
+          } else if (ga.type.toLowerCase().includes(typeSelected)) {
+            return true;
+          }
+          return false;
+        })
+        .sort((a, b) => {
+          if (sortSelected === "date") {
+            return a.published_date - b.published_date;
+          } else if (sortSelected === "popularity") {
+            return b.users - a.users;
+          }
+          return 0;
+        })
+       )}
+       setFilters();
+    },[gameData, platSelected, sortSelected, typeSelected])
 
   //get the sort options from options.json
   useEffect(() => {
@@ -60,7 +92,7 @@ function App() {
         .then((response) => {
           console.log("requested");
           setGameData(response.data);
-          setLoading(false)
+          setLoading(false);
         })
         .catch((error) => {
           console.error(error);
@@ -71,7 +103,7 @@ function App() {
 
   //the render
   return (
-    <div className="App" style={styles.App}>
+    <>
       <Header setSInput={setSInput} />
       <main>
         <Routes>
@@ -79,7 +111,7 @@ function App() {
             path="/"
             element={
               <Main
-                gameData={gameData}
+                gameData={filteredGa}
                 sortOptions={sortOptions}
                 platSelected={platSelected}
                 setPlatSelected={setPlatSelected}
@@ -108,7 +140,7 @@ function App() {
           />
         </Routes>
       </main>
-    </div>
+    </>
   );
 }
 

@@ -1,36 +1,30 @@
-import { React } from "react";
+import { React, useEffect, useState } from "react";
 import MainCard from "../components/cards/MainCard";
 import FilterBar from "../components/FilterBar";
 import BounceLoader from "react-spinners/BounceLoader";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Main = (props) => {
-  const filteredGa =
-    props.gameData &&
-    props.gameData
-      .filter((ga) => {
-        if (props.platSelected === "all") {
-          return true;
-        } else if (ga.platforms.toLowerCase().includes(props.platSelected)) {
-          return true;
-        }
-        return false;
-      })
-      .filter((ga) => {
-        if (props.typeSelected === "all") {
-          return true;
-        } else if (ga.type.toLowerCase().includes(props.typeSelected)) {
-          return true;
-        }
-        return false;
-      })
-      .sort((a, b) => {
-        if (props.sortSelected === "date") {
-          return a.published_date - b.published_date;
-        } else if (props.sortSelected === "popularity") {
-          return b.users - a.users;
-        }
-        return 0;
-      });
+  const perPage = 9,
+    [lastPosition, setLastPosition] = useState(perPage),
+    [allGa, setallGa] = useState([]),
+    [hasMore, setHasmore] = useState(true),
+    loadMore = () => {
+      setallGa((prev) => [
+        ...prev,
+        ...props.gameData.slice(lastPosition, lastPosition + perPage),
+      ]);
+
+      setLastPosition(lastPosition + perPage);
+      console.log(lastPosition);
+    };
+
+  useEffect(() => {
+    const setGa = () => {
+      setallGa(props.gameData.slice(0, perPage));
+    };
+    setGa();
+  }, [props.gameData]);
 
   return (
     <section>
@@ -50,12 +44,51 @@ const Main = (props) => {
         <div style={styles.loader}>
           <BounceLoader color={"#2EA0D6"} loading={props.loading} size={60} />
         </div>
-      ) : filteredGa.length < 1 ? (
-          <h2 style={styles.error}>Sorry, no giveaways match those filters</h2>
+      ) : allGa.length < 1 ? (
+        <h2 style={styles.error}>
+          Sorry, there are no current giveaways that match those filters.
+        </h2>
+      ) : (
+        <InfiniteScroll
+          dataLength={allGa.length} //This is important field to render the next data
+          next={loadMore}
+          hasMore={hasMore}
+        >
+          {
+            <ul style={styles.ul}>
+              {allGa.map((game) => {
+                return (
+                  <li key={game.id} style={styles.li}>
+                    <MainCard
+                      cardId={game.id}
+                      cardImg={game.image}
+                      cardHeader={game.title}
+                      cardContent={game.description}
+                      cardImgAlt="Giveaway Image"
+                      pillTxt1={game.status}
+                      pillTxt2={game.type}
+                      gaUrl={game.open_giveaway_url}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          }
+        </InfiniteScroll>
+      )}
+
+      {/* {props.loading ? (
+        <div style={styles.loader}>
+          <BounceLoader color={"#2EA0D6"} loading={props.loading} size={60} />
+        </div>
+      ) : allGa.length < 1 ? (
+        <h2 style={styles.error}>
+          Sorry, there are no current giveaways that match those filters.
+        </h2>
       ) : (
         <ul style={styles.ul}>
-          {/* map the data to cards, if gameData exists */}
-          {filteredGa.map((game) => {
+          map the data to cards, if gameData exists
+          {allGa.map((game) => {
             return (
               <li key={game.id} style={styles.li}>
                 <MainCard
@@ -72,7 +105,7 @@ const Main = (props) => {
             );
           })}
         </ul>
-      )}
+      )}*/}
     </section>
   );
 };
@@ -100,6 +133,6 @@ const styles = {
   },
   error: {
     textAlign: "center",
-    color: "red"
-  }
+    color: "red",
+  },
 };
