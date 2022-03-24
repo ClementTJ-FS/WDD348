@@ -60,5 +60,7 @@ The working branch for the application.
     - Added initial style to FilterBar.
     - Implemented filter functionality.
     - Fixed sort by functionality.
+    - Adding loading spinner.
+    - Added error text for empty filtered array.
 
 

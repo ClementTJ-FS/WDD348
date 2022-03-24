@@ -21,7 +21,8 @@ function App() {
     //sort values
     [platSelected, setPlatSelected] = useState("all"),
     [typeSelected, setTypeSelected] = useState("all"),
-    [sortSelected, setSortSelected] = useState("date");
+    [sortSelected, setSortSelected] = useState("date"),
+    [loading, setLoading] = useState(true)
 
   //get the sort options from options.json
   useEffect(() => {
@@ -59,6 +60,7 @@ function App() {
         .then((response) => {
           console.log("requested");
           setGameData(response.data);
+          setLoading(false)
         })
         .catch((error) => {
           console.error(error);
@@ -85,6 +87,7 @@ function App() {
                 setTypeSelected={setTypeSelected}
                 sortSelected={sortSelected}
                 setSortSelected={setSortSelected}
+                loading={loading}
               />
             }
           />
