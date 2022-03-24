@@ -10,7 +10,7 @@ const StyledLink = styled.div`
 
     .current{
         button{
-            border-bottom: 2px solid #2EA0D6;
+            border-bottom: 2px solid #1C7DB7;
         }
     } 
     button{
@@ -27,7 +27,7 @@ const Search =({setSInput})=>{
     return(     
         <StyledLink>
             <NavLink to= "/results" className={({ isActive }) => (isActive ? 'current' : '')}>
-                <button><FaSearch size="25px"/></button>
+                <button aria-label="Search Button"><FaSearch size="25px"/></button>
             </NavLink>
         </StyledLink>
     )

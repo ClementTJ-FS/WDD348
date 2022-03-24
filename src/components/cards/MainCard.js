@@ -24,7 +24,7 @@ const MainCard = (props) =>{
                         <MainBtn btnTxt="Details" />
                     </Link>
                 </div>                   
-                    <a href={props.gaUrl} target="_blank" rel="noreferrer"><MainBtn btnTxt="Go to Giveaway" /></a>
+                    <a href={props.gaUrl} target="_blank" rel="noreferrer" aria-label="Link to giveaway"><MainBtn btnTxt="Go to Giveaway" /></a>
                 </div>
             </div>
         </article>

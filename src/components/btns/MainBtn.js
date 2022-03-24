@@ -2,7 +2,7 @@ import React from "react";
 
 const MainBtn = props =>{
     return (
-        <button style={styles.btn} type="button">
+        <button style={styles.btn} type="button" aria-label="button">
             {props.btnTxt}
         </button>
     )
@@ -18,6 +18,6 @@ const styles = {
         border: "none",
         cursor: "pointer",
         fontWeight: "bold",
-        background: "#2EA0D6"
+        background: "#1C7DB7"
     }
 }

@@ -122,6 +122,7 @@ const styles = {
     maxWidth: "125rem",
     margin: "0 auto",
     listStyle: "none",
+    padding: "0"
   },
   li: {
     width: "35rem",

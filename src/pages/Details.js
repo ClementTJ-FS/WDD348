@@ -80,7 +80,7 @@ const Details = () => {
               </span>
             </li>
           </ul>
-          <a href={details.open_giveaway_url} target="_blank" rel="noreferrer">
+          <a href={details.open_giveaway_url} target="_blank" rel="noreferrer" aria-label="Link to giveaway">
             <BigBtn btnTxt="Go to Giveaway" />
           </a>
         </div>
