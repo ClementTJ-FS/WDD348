@@ -1,11 +1,37 @@
 import React from "react";
 import MainCard from "../components/cards/MainCard";
+import styled from "styled-components";
+
+const StyledSection = styled.section`
+width: 100vw;
+h2 {
+    text-align: center;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 125rem;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    @media (max-width: 500px){
+      width: 100%;
+    }
+  }
+  li {
+    width: 35rem;
+    margin: 1rem;
+    @media (max-width: 499px){
+      width: 90%;
+    }
+`;
 
 const Games = ({ gameData }) => {
   return (
-    <section>
+    <StyledSection>
       <div>
-        <h1 style={styles.h1}>Free Games</h1>
+        <h2 style={styles.h2}>Free Games</h2>
       </div>
       <ul style={styles.ul}>
         {/* map the data to cards, if gameData exists */}
@@ -29,13 +55,13 @@ const Games = ({ gameData }) => {
               );
             })}
       </ul>
-    </section>
+    </StyledSection>
   );
 };
 export default Games;
 
 const styles = {
-  h1: {
+  h2: {
     textAlign: "center",
   },
   ul: {

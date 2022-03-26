@@ -2,14 +2,16 @@ import { React, useEffect, useState } from "react";
 import axios from "axios";
 import BigBtn from "../components/btns/BigBtn";
 import { useParams } from "react-router-dom";
+import Loader from "../components/Loader";
 
-const Details = () => {
+const Details = ({loading, setLoading}) => {
   //from API
   const [details, setDetails] = useState([]);
   let { id } = useParams();
 
   //API hook to get details. - uses id from App
   useEffect(() => {
+    setLoading(true)
     const options = {
       method: "GET",
       url: "https://gamerpower.p.rapidapi.com/api/giveaway",
@@ -24,67 +26,80 @@ const Details = () => {
         .request(options)
         .then(function (response) {
           setDetails(response.data);
+          setLoading(false)
         })
         .catch(function (error) {
           console.error(error);
+          
         });
     }
     GetData();
-  }, [id]);
+  }, [id, setLoading]);
 
   //render
   return (
-    <section style={styles.container}>
-      <div style={styles.imgContainer}>
-        <img src={details.image} alt={details.title} style={styles.image} />
-      </div>
-      <h1 style={styles.title}>{details.title}</h1>
-      <div style={styles.row}>
-        <div style={styles.col1}>
-          <p>{details.description}</p>
-          <h2>Instructions</h2>
-          <div style={{ whiteSpace: "pre-wrap" }}>
-            <span>{details.instructions}</span>
+    <section>
+      {loading ? (
+        <Loader />
+      ) : (
+        <section style={styles.container}>
+          <div style={styles.imgContainer}>
+            <img src={details.image} alt={details.title} style={styles.image} />
           </div>
-        </div>
-        <div style={styles.col2}>
-          <ul style={styles.ul}>
-            <li>
-              <span>
-                <strong>Status: </strong>
-                {details.status}
-              </span>
-            </li>
-            <li>
-              <span>
-                <strong>Type: </strong>
-                {details.type}
-              </span>
-            </li>
-            <li>
-              <span>
-                <strong>Platform: </strong>
-                {details.platform}
-              </span>
-            </li>
-            <li>
-              <span>
-                <strong>Worth: </strong>
-                {details.worth}
-              </span>
-            </li>
-            <li>
-              <span>
-                <strong>End-Date: </strong>
-                {details.end_date}
-              </span>
-            </li>
-          </ul>
-          <a href={details.open_giveaway_url} target="_blank" rel="noreferrer" aria-label="Link to giveaway">
-            <BigBtn btnTxt="Go to Giveaway" />
-          </a>
-        </div>
-      </div>
+          <h1 style={styles.title}>{details.title}</h1>
+          <div style={styles.row}>
+            <div style={styles.col1}>
+              <p>{details.description}</p>
+              <h2>Instructions</h2>
+              <div style={{ whiteSpace: "pre-wrap" }}>
+                <span>{details.instructions}</span>
+              </div>
+            </div>
+            <div style={styles.col2}>
+              <ul style={styles.ul}>
+                <li>
+                  <span>
+                    <strong>Status: </strong>
+                    {details.status}
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Type: </strong>
+                    {details.type}
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Platform: </strong>
+                    {details.platform}
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Worth: </strong>
+                    {details.worth}
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>End-Date: </strong>
+                    {details.end_date}
+                  </span>
+                </li>
+              </ul>
+              <a
+                href={details.open_giveaway_url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Link to giveaway"
+              >
+                <BigBtn btnTxt="Go to Giveaway" />
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
     </section>
   );
 };
@@ -108,7 +123,7 @@ const styles = {
   },
   row: {
     display: "flex",
-    gap: "25%"
+    gap: "25%",
   },
   col1: {
     width: "50%",
@@ -118,6 +133,5 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    
   },
 };

@@ -1,24 +1,58 @@
 import { React, useEffect, useState } from "react";
 import MainCard from "../components/cards/MainCard";
 import FilterBar from "../components/FilterBar";
-import BounceLoader from "react-spinners/BounceLoader";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Loader from "../components/Loader";
+import styled from "styled-components";
+
+const StyledSection = styled.section`
+width: 100vw;
+
+h2 {
+    text-align: center;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 125rem;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    @media (max-width: 500px){
+      width: 100%;
+    }
+  }
+  li {
+    width: 35rem;
+    margin: 1rem;
+    @media (max-width: 499px){
+      width: 90%;
+    }
+
+  }
+  .error {
+    text-align: center;
+    color: red;
+  }
+`
 
 const Main = (props) => {
+  //how many Giveaways to show per scroll
   const perPage = 9,
     [lastPosition, setLastPosition] = useState(perPage),
     [allGa, setallGa] = useState([]),
-    [hasMore, setHasmore] = useState(true),
+    
+    //for infinite scroll - sets next giveaways to display - combine with previously displayed - moves position for next scroll
     loadMore = () => {
       setallGa((prev) => [
         ...prev,
         ...props.gameData.slice(lastPosition, lastPosition + perPage),
       ]);
-
       setLastPosition(lastPosition + perPage);
-      console.log(lastPosition);
     };
 
+    //slices the giveaways into "pages"
   useEffect(() => {
     const setGa = () => {
       setallGa(props.gameData.slice(0, perPage));
@@ -27,9 +61,9 @@ const Main = (props) => {
   }, [props.gameData]);
 
   return (
-    <section>
+    <StyledSection>
       <div>
-        <h1 style={styles.h1}>All Giveaways</h1>
+        <h2>All Giveaways</h2>
       </div>
       {props.sortOptions && (
         <FilterBar
@@ -41,24 +75,22 @@ const Main = (props) => {
       )}
 
       {props.loading ? (
-        <div style={styles.loader}>
-          <BounceLoader color={"#2EA0D6"} loading={props.loading} size={60} />
-        </div>
+        <Loader />
       ) : allGa.length < 1 ? (
-        <h2 style={styles.error}>
+        <h2 className="error">
           Sorry, there are no current giveaways that match those filters.
         </h2>
       ) : (
         <InfiniteScroll
           dataLength={allGa.length} //This is important field to render the next data
           next={loadMore}
-          hasMore={hasMore}
+          hasMore={true}
         >
           {
-            <ul style={styles.ul}>
+            <ul>
               {allGa.map((game) => {
                 return (
-                  <li key={game.id} style={styles.li}>
+                  <li key={game.id}>
                     <MainCard
                       cardId={game.id}
                       cardImg={game.image}
@@ -76,64 +108,9 @@ const Main = (props) => {
           }
         </InfiniteScroll>
       )}
-
-      {/* {props.loading ? (
-        <div style={styles.loader}>
-          <BounceLoader color={"#2EA0D6"} loading={props.loading} size={60} />
-        </div>
-      ) : allGa.length < 1 ? (
-        <h2 style={styles.error}>
-          Sorry, there are no current giveaways that match those filters.
-        </h2>
-      ) : (
-        <ul style={styles.ul}>
-          map the data to cards, if gameData exists
-          {allGa.map((game) => {
-            return (
-              <li key={game.id} style={styles.li}>
-                <MainCard
-                  cardId={game.id}
-                  cardImg={game.image}
-                  cardHeader={game.title}
-                  cardContent={game.description}
-                  cardImgAlt="Giveaway Image"
-                  pillTxt1={game.status}
-                  pillTxt2={game.type}
-                  gaUrl={game.open_giveaway_url}
-                />
-              </li>
-            );
-          })}
-        </ul>
-      )}*/}
-    </section>
+    </StyledSection>
   );
 };
 export default Main;
 
-const styles = {
-  h1: {
-    textAlign: "center",
-  },
-  ul: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-evenly",
-    maxWidth: "125rem",
-    margin: "0 auto",
-    listStyle: "none",
-    padding: "0"
-  },
-  li: {
-    width: "35rem",
-    height: "30rem",
-    margin: "1rem",
-  },
-  loader: {
-    margin: "5rem 50%",
-  },
-  error: {
-    textAlign: "center",
-    color: "red",
-  },
-};
+

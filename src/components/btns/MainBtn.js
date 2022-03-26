@@ -1,23 +1,26 @@
 import React from "react";
+import styled from "styled-components";
 
-const MainBtn = props =>{
-    return (
-        <button style={styles.btn} type="button" aria-label="button">
-            {props.btnTxt}
-        </button>
-    )
-}
+const StyledBtn = styled.button`
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: #1c7db7;
+  @media (max-width: 499px) {
+    padding: .5rem;
+    font-size: 12px;
+  }
+`;
+
+const MainBtn = (props) => {
+  return (
+    <StyledBtn type="button" aria-label="button">
+      {props.btnTxt}
+    </StyledBtn>
+  );
+};
 
 export default MainBtn;
-
-const styles = {
-    btn: {
-        padding: ".5rem",
-        color: "#fff",
-        borderRadius: "5px",
-        border: "none",
-        cursor: "pointer",
-        fontWeight: "bold",
-        background: "#1C7DB7"
-    }
-}

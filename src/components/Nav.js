@@ -1,12 +1,14 @@
 import React from "react";
+import NavLinks from "./NavLinks";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 
-const StyledNav = styled.ul`
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 1rem;
-  margin: 0;
+const StyledNavNav = styled.nav`
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    margin: 0;
+  }
 
   a {
     text-decoration: none;
@@ -20,39 +22,21 @@ const StyledNav = styled.ul`
 
   .current {
     p {
-      border-bottom: 2px solid #1C7DB7;
+      border-bottom: 2px solid #1c7db7;
     }
   }
 
   li {
     margin: 0 0.5rem;
     list-style: none;
-    
   }
 `;
 
-const links = [
-  { name: "Giveaways", path: "/" },
-  { name: "Games", path: "/games" },
-  { name: "Loot", path: "/loot" },
-];
-
 const Nav = () => {
   return (
-    <nav>
-      <StyledNav>
-        {links.map((link, index) => (
-          <li key={index}>
-            <NavLink
-              to={link.path}
-              className={({ isActive }) => (isActive ? "current" : "")}
-            >
-              <p>{link.name}</p>
-            </NavLink>
-          </li>
-        ))}
-      </StyledNav>
-    </nav>
+    <StyledNavNav>
+      <NavLinks />
+    </StyledNavNav>
   );
 };
 

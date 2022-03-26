@@ -21,7 +21,7 @@ const MainCard = (props) =>{
                 <div style={styles.cardBtns}>
                 <div>
                     <Link to={`/details/${props.cardId}`} >
-                        <MainBtn btnTxt="Details" />
+                        <MainBtn btnTxt="Go To Details" />
                     </Link>
                 </div>                   
                     <a href={props.gaUrl} target="_blank" rel="noreferrer" aria-label="Link to giveaway"><MainBtn btnTxt="Go to Giveaway" /></a>
@@ -47,7 +47,6 @@ const styles = {
     },
     cardImg: {
         width: "100%",
-        height: "18rem"
     },
     cardContent: {
         display: "flex",
@@ -70,6 +69,7 @@ const styles = {
     },
     cardPills: {
         display: "flex",
+        marginRight: ".5rem"
     },
     cardBtns: {
         display: "flex",

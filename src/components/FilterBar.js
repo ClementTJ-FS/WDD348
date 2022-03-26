@@ -18,27 +18,23 @@ const FilterBar = (props) => {
 
   return (
     <section style={styles.container}>
-      <div>
-        <Dropdown
-          label="Platform: "
-          options={props.sortOptions.platform}
-          onChange={handlePlatChange}
-        />
-      </div>
-      <div>
-        <Dropdown
-          label="Type: "
-          options={props.sortOptions.type}
-          onChange={handleTypeChange}
-        />
-      </div>
-      <div>
-        <Dropdown
-          label="Sort By: "
-          options={props.sortOptions.sortBy}
-          onChange={handleSortChange}
-        />
-      </div>
+      <Dropdown
+        label="Platform: "
+        options={props.sortOptions.platform}
+        onChange={handlePlatChange}
+      />
+
+      <Dropdown
+        label="Type: "
+        options={props.sortOptions.type}
+        onChange={handleTypeChange}
+      />
+
+      <Dropdown
+        label="Sort By: "
+        options={props.sortOptions.sortBy}
+        onChange={handleSortChange}
+      />
     </section>
   );
 };
@@ -48,9 +44,9 @@ export default FilterBar;
 const styles = {
   container: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     alignItems: "center",
-    maxWidth: "35rem",
+    maxWidth: "30rem",
     margin: "1rem auto",
     background: "#1E2429",
     boxShadow: "5px 5px 10px rgba(0,0,0,1)",

@@ -8,6 +8,8 @@ import Loot from "./pages/Loot";
 import Results from "./pages/Results";
 import Header from "./components/Header";
 
+
+
 function App() {
   //useState to hold the data from API
   const [gameData, setGameData] = useState([]),
@@ -25,6 +27,7 @@ function App() {
     [loading, setLoading] = useState(true),
     [filteredGa, setFilteredGa] = useState([]);
 
+    //filters the main page items - sets filteredGa state
     useEffect(()=>{
       const setFilters =()=>{
        setFilteredGa( gameData
@@ -56,20 +59,26 @@ function App() {
        setFilters();
     },[gameData, platSelected, sortSelected, typeSelected])
 
+    
+
   //get the sort options from options.json
   useEffect(() => {
     const getData = () => {
-      fetch("options.json", {
+      const url = process.env.PUBLIC_URL + "/options.json"
+      fetch(url, {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-        },
+        }
       })
         .then((response) => {
           return response.json();
         })
         .then((json) => {
           setOptions(json);
+        })
+        .catch((error) => {
+          console.error(error);
         });
     };
     getData();
@@ -105,7 +114,7 @@ function App() {
   return (
     <>
       <Header setSInput={setSInput} />
-      <main>
+      <main style={styles.App}>
         <Routes>
           <Route
             path="/"
@@ -123,8 +132,8 @@ function App() {
               />
             }
           />
-          <Route path="details" element={<Details />}>
-            <Route path=":id" element={<Details />} />
+          <Route path="details" element={<Details loading={loading} setLoading={setLoading}/>}>
+            <Route path=":id" element={<Details  loading={loading} setLoading={setLoading}/>} />
           </Route>
           <Route path="games" element={<Games gameData={gameData} />} />
           <Route path="loot" element={<Loot gameData={gameData} />} />
@@ -150,5 +159,9 @@ const styles = {
   App: {
     background: "#0D0F12",
     color: "#fff",
+    marginTop: "5rem"
   },
+  img: {
+    width: "500px"
+  }
 };
