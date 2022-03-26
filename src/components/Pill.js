@@ -10,8 +10,6 @@ const StyledPill = styled.button `
   margin: 0 0.2rem;
   @media (max-width: 499px){
       padding: 0 .2rem;
-      font-size: 10px;
-      border: 2px solid #fff;
   }
 `;
 

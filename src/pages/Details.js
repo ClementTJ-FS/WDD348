@@ -3,15 +3,72 @@ import axios from "axios";
 import BigBtn from "../components/btns/BigBtn";
 import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
+import styled from "styled-components";
 
-const Details = ({loading, setLoading}) => {
+const StyledSection = styled.section`
+  width: 50%;
+  margin: 1rem auto;
+
+  img{
+    width: 100%;
+    box-shadow: 5px 5px 10px #000;
+  }
+  ul{
+    list-style: none inside;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  .row{
+    display: flex;
+    gap: 25%;
+  }
+  .col1 {
+    width: 50%;
+  }
+  .col2 {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  p{
+    margin: 0;
+  }
+  @media (max-width: 850px) {
+    width: 90%;
+    ul{
+      display: flex;
+      justify-content: flex-start;
+      gap: 10%;
+      flex-wrap: wrap;
+    }
+    span{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: .2rem;
+    }
+    a{
+      margin: 1rem auto;
+    }
+    .row {
+      flex-direction: column;
+      width: 100%;
+    }
+    .col1, .col2 {
+    width: 100%;
+  }
+  }
+`;
+
+const Details = ({ loading, setLoading }) => {
   //from API
   const [details, setDetails] = useState([]);
   let { id } = useParams();
 
   //API hook to get details. - uses id from App
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     const options = {
       method: "GET",
       url: "https://gamerpower.p.rapidapi.com/api/giveaway",
@@ -26,11 +83,10 @@ const Details = ({loading, setLoading}) => {
         .request(options)
         .then(function (response) {
           setDetails(response.data);
-          setLoading(false)
+          setLoading(false);
         })
         .catch(function (error) {
           console.error(error);
-          
         });
     }
     GetData();
@@ -42,21 +98,21 @@ const Details = ({loading, setLoading}) => {
       {loading ? (
         <Loader />
       ) : (
-        <section style={styles.container}>
-          <div style={styles.imgContainer}>
-            <img src={details.image} alt={details.title} style={styles.image} />
+        <StyledSection>
+          <div className="imgContainer">
+            <img src={details.image} alt={details.title} />
           </div>
-          <h1 style={styles.title}>{details.title}</h1>
-          <div style={styles.row}>
-            <div style={styles.col1}>
+          <h2>{details.title}</h2>
+          <div className="row">
+            <div className="col1">
               <p>{details.description}</p>
               <h2>Instructions</h2>
               <div style={{ whiteSpace: "pre-wrap" }}>
-                <span>{details.instructions}</span>
+                <p>{details.instructions}</p>
               </div>
             </div>
-            <div style={styles.col2}>
-              <ul style={styles.ul}>
+            <div className="col2">
+              <ul>
                 <li>
                   <span>
                     <strong>Status: </strong>
@@ -72,7 +128,7 @@ const Details = ({loading, setLoading}) => {
                 <li>
                   <span>
                     <strong>Platform: </strong>
-                    {details.platform}
+                    {details.platforms}
                   </span>
                 </li>
                 <li>
@@ -98,40 +154,9 @@ const Details = ({loading, setLoading}) => {
               </a>
             </div>
           </div>
-        </section>
+        </StyledSection>
       )}
     </section>
   );
 };
 export default Details;
-
-const styles = {
-  container: {
-    width: "50%",
-    margin: "1rem auto",
-  },
-  imgContainer: {
-    flex: "2",
-  },
-  image: {
-    width: "100%",
-  },
-  ul: {
-    listStyle: "none inside",
-    padding: "0",
-    margin: "1rem 0",
-  },
-  row: {
-    display: "flex",
-    gap: "25%",
-  },
-  col1: {
-    width: "50%",
-  },
-  col2: {
-    width: "25%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-  },
-};

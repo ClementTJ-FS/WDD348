@@ -69,6 +69,7 @@ The working branch for the application.
     - Added loader to details.
     - Added hamburger menu to mobile screen sizes.
     - Made Main, Games, Loot more responsive.
+    - Made details page more responsive.
     
 
     
