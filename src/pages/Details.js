@@ -13,6 +13,9 @@ const StyledSection = styled.section`
     width: 100%;
     box-shadow: 5px 5px 10px #000;
   }
+  h1{
+    margin-bottom: 1rem;
+  }
   ul{
     list-style: none inside;
     padding: 0;

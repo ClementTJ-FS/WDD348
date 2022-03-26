@@ -7,6 +7,7 @@ import Games from "./pages/Games";
 import Loot from "./pages/Loot";
 import Results from "./pages/Results";
 import Header from "./components/Header";
+import Footer from "./components/Footer"
 
 
 
@@ -149,6 +150,7 @@ function App() {
           />
         </Routes>
       </main>
+      <Footer />
     </>
   );
 }
