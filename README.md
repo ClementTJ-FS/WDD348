@@ -71,6 +71,7 @@ The working branch for the application.
     - Made Main, Games, Loot more responsive.
     - Made Details page more responsive.
     - Adjusted Details for mobile layout.
+    - Added Footer.
     
 
     
