@@ -16,7 +16,7 @@ const StyledSection = styled.section`
   ul{
     list-style: none inside;
     padding: 0;
-    margin: 1rem 0;
+    margin: 0;
   }
   .row{
     display: flex;
@@ -34,8 +34,12 @@ const StyledSection = styled.section`
   p{
     margin: 0;
   }
-  @media (max-width: 850px) {
+  @media (max-width: 960px) {
     width: 90%;
+    h1{
+      font-size: 24px;
+      margin-bottom: 1rem;
+    }
     ul{
       display: flex;
       justify-content: flex-start;
@@ -47,6 +51,9 @@ const StyledSection = styled.section`
       flex-direction: column;
       align-items: center;
       margin-bottom: .2rem;
+    }
+    p{
+      margin-bottom: 1rem;
     }
     a{
       margin: 1rem auto;
@@ -102,7 +109,7 @@ const Details = ({ loading, setLoading }) => {
           <div className="imgContainer">
             <img src={details.image} alt={details.title} />
           </div>
-          <h2>{details.title}</h2>
+          <h1>{details.title}</h1>
           <div className="row">
             <div className="col1">
               <p>{details.description}</p>

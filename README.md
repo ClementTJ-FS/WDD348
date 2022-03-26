@@ -66,10 +66,11 @@ The working branch for the application.
     - Implemented infinite scroll functionality on Main.
     - Addressed accessability issues.
     - Added favicon and app icons.
-    - Added loader to details.
+    - Added loader to Details.
     - Added hamburger menu to mobile screen sizes.
     - Made Main, Games, Loot more responsive.
-    - Made details page more responsive.
+    - Made Details page more responsive.
+    - Adjusted Details for mobile layout.
     
 
     
