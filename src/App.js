@@ -151,7 +151,7 @@ function App() {
         </Routes>
       </main>
       <div style={styles.footer}>
-        <Footer />
+        {gameData && <Footer />}
       </div>
        
     </div>
