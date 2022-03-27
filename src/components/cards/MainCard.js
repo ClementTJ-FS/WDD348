@@ -47,6 +47,7 @@ const styles = {
     },
     cardImg: {
         width: "100%",
+        height: "15rem"
     },
     cardContent: {
         display: "flex",

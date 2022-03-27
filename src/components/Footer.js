@@ -5,8 +5,6 @@ const StyledFooter = styled.footer`
   width: 100%;
   height: 7rem;
   background: #1e2429;
-  position: absolute;
-  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -25,11 +23,11 @@ const StyledFooter = styled.footer`
 `;
 function Footer() {
   return (
-    <StyledFooter style={styles.footer}>
+    <StyledFooter>
       <a className="contact" href="mailto: tj.clement0@gmail.com">Contact</a>
       <span>
         Powered by:{" "}
-        <a href="https://www.gamerpower.com/api-read" target="_blank">
+        <a href="https://www.gamerpower.com/api-read" target="_blank" rel="noreferrer">
           Gamer Power API
         </a>
       </span>
@@ -39,4 +37,3 @@ function Footer() {
 
 export default Footer;
 
-const styles = {};

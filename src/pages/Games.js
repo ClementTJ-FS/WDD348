@@ -3,7 +3,7 @@ import MainCard from "../components/cards/MainCard";
 import styled from "styled-components";
 
 const StyledSection = styled.section`
-width: 100vw;
+width: 100%;
 h2 {
     text-align: center;
   }

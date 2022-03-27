@@ -113,7 +113,7 @@ function App() {
 
   //the render
   return (
-    <>
+    <div style={styles.container}>
       <Header setSInput={setSInput} />
       <main style={styles.App}>
         <Routes>
@@ -150,20 +150,32 @@ function App() {
           />
         </Routes>
       </main>
-      <Footer />
-    </>
+      <div style={styles.footer}>
+        <Footer />
+      </div>
+       
+    </div>
   );
 }
 
 export default App;
 
 const styles = {
+  container: {
+    position: "relative",
+    minHeight: "100vh",
+    width: "100%"
+  },
   App: {
     background: "#0D0F12",
     color: "#fff",
-    marginTop: "5rem"
+    marginTop: "5rem",
+    height: "100%"
   },
-  img: {
-    width: "500px"
+  footer:{
+    position: "relative",
+    width: "100%",
+    bottom:"0",
+    marginTop: "5rem"
   }
 };
