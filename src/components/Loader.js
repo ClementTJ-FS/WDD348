@@ -12,6 +12,8 @@ export default Loader;
 
 const styles ={
     loader: {
-        margin: "20rem 50%",
+        position: "absolute",
+        top: "50%",
+        left: "50%"
       }
 }

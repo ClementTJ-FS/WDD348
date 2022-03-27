@@ -13,13 +13,13 @@ const StyledSection = styled.section`
     width: 100%;
     box-shadow: 5px 5px 10px #000;
   }
-  h1{
+  h1, img, p{
     margin-bottom: 1rem;
   }
   ul{
     list-style: none inside;
     padding: 0;
-    margin: 0;
+    margin: 0 0 1rem 0;
   }
   .row{
     display: flex;
@@ -41,7 +41,6 @@ const StyledSection = styled.section`
     width: 90%;
     h1{
       font-size: 24px;
-      margin-bottom: 1rem;
     }
     ul{
       display: flex;
@@ -55,17 +54,13 @@ const StyledSection = styled.section`
       align-items: center;
       margin-bottom: .2rem;
     }
-    p{
-      margin-bottom: 1rem;
-    }
     a{
       margin: 1rem auto;
     }
     .row {
       flex-direction: column;
-      width: 100%;
     }
-    .col1, .col2 {
+    .col1, .col2, .row {
     width: 100%;
   }
   }
