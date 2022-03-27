@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const StyledSection = styled.section`
 width: 100vw;
+
 h2 {
     text-align: center;
   }
@@ -26,17 +27,27 @@ h2 {
     @media (max-width: 499px){
       width: 90%;
     }
-`;
+
+  }
+  .error {
+    text-align: center;
+    color: red;
+  }
+  .searchContainer {
+      width: 25rem;
+      margin: 1rem auto;
+  }
+`
 
 const Results = (props) => {
   return (
     <StyledSection>
-      <div style={styles.searchContainer}>
+      <div className="searchContainer">
         <Search setSInput={props.setSInput} />
       </div>
 
-      <h2 style={styles.h2}>Results for: "{props.searchInput}"</h2>
-      <ul style={styles.ul}>
+      <h2>Results for: "{props.searchInput}"</h2>
+      <ul>
       {/* The results display - Filters gameData for searchinput - If no input, displays all */}
         {props.gameData &&
           props.gameData
@@ -52,7 +63,7 @@ const Results = (props) => {
             })
             .map((ga) => {
               return (
-                <li key={ga.id} style={styles.li}>
+                <li key={ga.id}>
                   <MainCard
                     cardId={ga.id}
                     cardImg={ga.image}
@@ -71,26 +82,3 @@ const Results = (props) => {
   );
 };
 export default Results;
-
-const styles = {
-  h2: {
-    textAlign: "center",
-  },
-  ul: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-evenly",
-    maxWidth: "125rem",
-    margin: "0 auto",
-    listStyle: "none",
-  },
-  li: {
-    width: "35rem",
-    height: "30rem",
-    margin: "1rem",
-  },
-  searchContainer: {
-      width: "25rem",
-      margin: "1rem auto"
-  }
-};
