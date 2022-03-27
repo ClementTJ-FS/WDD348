@@ -31,16 +31,16 @@ const Games = ({ gameData }) => {
   return (
     <StyledSection>
       <div>
-        <h2 style={styles.h2}>Free Games</h2>
+        <h2>Free Games</h2>
       </div>
-      <ul style={styles.ul}>
+      <ul>
         {/* map the data to cards, if gameData exists */}
         {gameData &&
           gameData
             .filter((giveaway) => giveaway.type === "Full Game")
             .map((game) => {
               return (
-                <li key={game.id} style={styles.li}>
+                <li key={game.id} >
                   <MainCard
                     cardId={game.id}
                     cardImg={game.image}
@@ -60,21 +60,3 @@ const Games = ({ gameData }) => {
 };
 export default Games;
 
-const styles = {
-  h2: {
-    textAlign: "center",
-  },
-  ul: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-evenly",
-    maxWidth: "125rem",
-    margin: "0 auto",
-    listStyle: "none",
-  },
-  li: {
-    width: "35rem",
-    height: "30rem",
-    margin: "1rem",
-  },
-};
