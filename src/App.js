@@ -153,7 +153,6 @@ function App() {
       <div style={styles.footer}>
         {gameData && <Footer />}
       </div>
-       
     </div>
   );
 }
@@ -170,12 +169,13 @@ const styles = {
     background: "#0D0F12",
     color: "#fff",
     marginTop: "5rem",
+    paddingBottom: "5rem",
     height: "100%"
   },
   footer:{
-    position: "relative",
+    position: "absolute",
     width: "100%",
     bottom:"0",
-    marginTop: "5rem"
+    
   }
 };
