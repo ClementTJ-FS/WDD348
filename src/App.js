@@ -100,7 +100,6 @@ function App() {
       axios
         .request(options)
         .then((response) => {
-          console.log("requested");
           setGameData(response.data);
           setLoading(false);
         })
@@ -169,7 +168,7 @@ const styles = {
     background: "#0D0F12",
     color: "#fff",
     marginTop: "5rem",
-    paddingBottom: "5rem",
+    paddingBottom: "10rem",
     height: "100%"
   },
   footer:{

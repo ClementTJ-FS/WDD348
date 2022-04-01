@@ -75,6 +75,8 @@ The working branch for the application.
     
 - After 
     - Fixed Game and Loot to support API change.
+    - Fixed bottom padding on pages.
+    - Removed console log.
     
 
     
