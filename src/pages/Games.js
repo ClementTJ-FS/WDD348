@@ -28,6 +28,7 @@ h2 {
 `;
 
 const Games = ({ gameData }) => {
+  
   return (
     <StyledSection>
       <div>
@@ -35,10 +36,11 @@ const Games = ({ gameData }) => {
       </div>
       <ul>
         {/* map the data to cards, if gameData exists */}
-        {gameData &&
+        {
           gameData
-            .filter((giveaway) => giveaway.type === "Full Game")
+            .filter((giveaway) => giveaway.type === "Game")
             .map((game) => {
+              console.log(game)
               return (
                 <li key={game.id} >
                   <MainCard

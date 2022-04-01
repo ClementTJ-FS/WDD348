@@ -73,6 +73,9 @@ The working branch for the application.
     - Adjusted Details for mobile layout.
     - Added Footer.
     
+- After 
+    - Fixed Game and Loot to support API change.
+    
 
     
 

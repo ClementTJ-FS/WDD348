@@ -37,7 +37,7 @@ const Loot = ({ gameData }) => {
         {/* map the data to cards, if gameData exists */}
         {gameData &&
           gameData
-            .filter((giveaway) => giveaway.type === "DLC & Loot")
+            .filter((giveaway) => giveaway.type === "DLC")
             .map((game) => {
               return (
                 <li key={game.id}>
